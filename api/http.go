@@ -73,6 +73,8 @@ func (h *handler) Post(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 			return
 		}
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
 	responseBody, err := h.serializer(contentType).Encode(redirect)
 	if err != nil {

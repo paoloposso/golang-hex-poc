@@ -19,10 +19,8 @@ func (r *RedirectSerializer) Decode(input []byte) (*shortener.Redirect, error) {
 
 func (r *RedirectSerializer) Encode(input *shortener.Redirect) ([]byte, error) {
 	rawMsg, err := json.Marshal(input)
-
 	if err != nil {
 		return nil, errors.Wrap(err, "serializer.Redirect.Encode")
 	}
-
 	return rawMsg, nil
 }
